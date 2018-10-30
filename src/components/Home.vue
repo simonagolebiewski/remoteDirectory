@@ -218,6 +218,8 @@ table {
   &--filter {
     grid-row: 1 / -1;
     padding: 16px 10px 10px;
+    box-shadow: none;
+    background: #F4F6F8;
   }
 }
 .search-container {
@@ -227,7 +229,7 @@ table {
     background: #FFFFFF;
     border: 1px solid #E3E3E3;
     padding: 10px;
-    background: url(../images/search-icon.svg) no-repeat scroll 7px 7px;
+    background: url(../images/search-icon.svg) no-repeat #FFFFFF scroll 7px 7px;
     background-position: 96%;
     &::placeholder {
       font-family: 'Roboto-Bold', sans-serif;
