@@ -90,7 +90,7 @@ import $ from 'jquery';
 export default {
   name: 'Home',
   components: {
-    'item-card': ItemCard
+    'item-card': ItemCard,
   },
   data () {
     return {
@@ -234,7 +234,7 @@ table {
 }
 
 .container {
-  width: 1200px;
+  width: 90%;
   margin: auto;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 15px;

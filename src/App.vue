@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <!-- <Header/> -->
+    <Header/>
     <Home/>
   </div>
 </template>
 
 <script>
+import Header from './components/Header';
 import Home from './components/Home';
 import ItemCard from './components/ItemCard';
-// import Header from './Header';
 
 export default {
   name: 'App',
   components: {
+    Header,
     Home,
-    ItemCard,
-    // Header
+    ItemCard
   }
 }
 </script>
