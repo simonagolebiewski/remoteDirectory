@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- <Header/> -->
     <Home/>
   </div>
 </template>
@@ -7,12 +8,14 @@
 <script>
 import Home from './components/Home';
 import ItemCard from './components/ItemCard';
+// import Header from './Header';
 
 export default {
   name: 'App',
   components: {
     Home,
-    ItemCard
+    ItemCard,
+    // Header
   }
 }
 </script>

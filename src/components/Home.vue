@@ -1,53 +1,85 @@
 <template>
   <div class="container">
-    <div class="grid grid--filter">
-      <form v-on:submit="getfilteredData">
-        <div class="search-container">
-          <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
+    <div class="container__block">
+      <div class="container__block__inline">
+        <div class="container__block__inline__company-description">
+                <div class="container__block__inline__company-description--intro">
+                 This year, <div class="remote-owls">remote owls</div>
+                 collaborating more than ever
+                 before, with billion animals
+                 and counting.
+                 </div>
+                 <div class="container__block__inline__company-description--para">
+                 You’re transcending borders
+                 and barriers of all varieties
+                 to create something unquantifiable:
+                 a community of leaders, dreamers,
+                 dissenters, tinkerers, and doers
+                 building the way for.
+                 </div>
+                 <div class="container__block__inline__company-description--para">
+                 To celebrate a year of teamwork across
+                 time zones, programming languages,
+                 and billions of lines of code, let’s
+                 take a look back on the communities
+                 and projects you’ve created in 2018.
+               </div>
+          </div>
         </div>
-      </form>
-      <div class="accordion-container">
-        <article class="message">
-          <div class="message-header showDesc" id="showDesc1" @click="showDesc">Sort By</div>
-            <div class="message-body">
-              <div class="message-content descContainer" :class="{ show: Show.showDesc1 }">
-                  <ul>
-                    <li><input type="radio" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label>Alphabetical</label></li>
-                    <li><input type="radio" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label>Recently Updated</label></li>
-                  </ul>
-              </div>
-            </div>
-        </article>
-        <article class="message">
-          <div class="message-header showDesc" id="showDesc2" @click="showDesc">Region</div>
-            <div class="message-body">
-              <div class="message-content descContainer" :class="{ show: Show.showDesc2 }">
-                <ul>
-                  <li><input type="radio" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label>Any</label></li>
-                  <li><input type="radio" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label>USA</label></li>
-                  <li><input type="radio" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label>Europe</label></li>
-                </ul>
-              </div>
-            </div>
-        </article>
-        <article class="message">
-          <div class="message-header showDesc" id="showDesc3" @click="showDesc">Size</div>
-            <div class="message-body">
-              <div class="message-content descContainer" :class="{ show: Show.showDesc3 }">
-                <ul>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label>Any</label></li>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label>1-10</label></li>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label>11-50</label></li>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label>51-100</label></li>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label>101-500</label></li>
-                  <li><input type="radio" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label>500+</label></li>
-                </ul>
-              </div>
-            </div>
-        </article>
+        <div class="container__block__inline">
+          <div class="container__block__inline__illustration"><img src="../images/illustration-remote.svg"/></div>
+        </div>
       </div>
-    </div>
+    <div class="container__filter-container">
+      <div class="grid grid--filter">
+          <form v-on:submit="getfilteredData">
+            <div class="search-container">
+              <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
+            </div>
+          </form>
+          <div class="accordion-container">
+            <article class="message">
+              <div class="message-header showDesc chev-up" id="showDesc1" @click="showDesc">Sort By</div>
+                <div class="message-body">
+                  <div class="message-content descContainer" :class="{ show: Show.showDesc1 }">
+                      <ul>
+                        <li><input type="radio" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label>Alphabetical</label></li>
+                        <li><input type="radio" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label>Recently Updated</label></li>
+                      </ul>
+                  </div>
+                </div>
+            </article>
+            <article class="message">
+              <div class="message-header showDesc chev-up" id="showDesc2" @click="showDesc">Region</div>
+                <div class="message-body">
+                  <div class="message-content descContainer" :class="{ show: Show.showDesc2 }">
+                    <ul>
+                      <li><input type="radio" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label>Any</label></li>
+                      <li><input type="radio" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label>USA</label></li>
+                      <li><input type="radio" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label>Europe</label></li>
+                    </ul>
+                  </div>
+                </div>
+            </article>
+            <article class="message">
+              <div class="message-header showDesc chev-up" id="showDesc3" @click="showDesc">Size</div>
+                <div class="message-body">
+                  <div class="message-content descContainer" :class="{ show: Show.showDesc3 }">
+                    <ul>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label>Any</label></li>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label>1-10</label></li>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label>11-50</label></li>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label>51-100</label></li>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label>101-500</label></li>
+                      <li><input type="radio" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label>500+</label></li>
+                    </ul>
+                  </div>
+                </div>
+            </article>
+          </div>
+        </div>
       <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
+    </div>
   </div>
 </template>
 
@@ -202,14 +234,48 @@ table {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  width: 1000px;
+  width: 1200px;
   margin: auto;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 15px;
+  &__block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 85px;
+    &__inline {
+      &__company-description {
+        &--intro {
+          text-align: left;
+          font-size: 34px;
+          font-family: 'Roboto-Regular', sans-serif;
+          color: #24292E;
+          margin-bottom: 20px;
+          width: 80%;
+          .remote-owls {
+            color: #F84F78;
+            display: inline-block;
+          }
+        }
+        &--para {
+          font-size: 16px;
+          color: #868686;
+          text-align: left;
+          line-height: 24px;
+          margin-bottom: 20px;
+          &:last-child {
+            margin-bottom: 52px;
+          }
+        }
+      }
+    }
+  }
+  &__filter-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
 }
 .grid {
   background: #FFFFFF;
@@ -238,6 +304,16 @@ table {
     }
   }
 }
+.chev-up {
+  background: url(../images/chevron-up.svg);
+  background-repeat: no-repeat;
+  background-position: 96%;
+}
+.chev-down {
+  background: url(../images/chevron-down.svg);
+  background-repeat: no-repeat;
+  background-position: 96%;
+}
 .descContainer {
   display: none;
 }
@@ -252,8 +328,8 @@ table {
       cursor: pointer;
       text-align: left;
       font-size: 14px;
-      background: url(../images/accordion-icon.svg) no-repeat;
-      background-position: 98%;
+      // background: url(../images/accordion-icon.svg) no-repeat;
+      // background-position: 98%;
       font-family: 'Roboto-Bold', sans-serif;
       color: #181818;
     }
