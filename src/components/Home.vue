@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="container__block__inline">
-          <div class="container__block__inline__illustration"><img src="../images/illustration-remote.svg"/></div>
+          <div class="container__block__inline__illustration"><img src="../images/remote-hero.svg"/></div>
         </div>
       </div>
     <div class="container__filter-container">
