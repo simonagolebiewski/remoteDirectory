@@ -104,7 +104,9 @@
             <div><button @click="clearResults">Clear Results</button></div>
           </div>
         </div>
-      <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
+        <div class="grid-item-container">
+            <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
+        </div>
     </div>
   </div>
 </template>
@@ -407,33 +409,35 @@ table {
   &__filter-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
-
+  }
+}
+.grid-item-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    grid-column-start: 2;
+    grid-column-end: span col4-start;
     @media only screen and (max-width: 1075px) {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     @media only screen and (max-width: 850px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(1, 1fr);
-    }
-    @media only screen and (max-width: 580px) {
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(1, 1fr);
     }
-  }
 }
 .grid {
   background: #FFFFFF;
   box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
   border-radius: 4px;
   &--filter {
-    grid-row: 1 / 5;
     padding: 16px 10px 10px;
+    -webkit-box-shadow: none;
     box-shadow: none;
     background: #F4F6F8;
+    // grid-template-columns: 1fr;
+    min-width: 270px;
   }
 }
 .search-container {
