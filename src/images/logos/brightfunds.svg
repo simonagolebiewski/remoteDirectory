@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36">
+  <g fill="none">
+    <polygon fill="#E47FA4" points="15.656 35.719 8.656 10.939 31.311 15.332"/>
+    <polygon fill="#84C348" points="15.515 .282 31.311 15.332 8.656 10.939"/>
+    <polygon fill="#FFCA35" points="0 16.445 15.515 .282 8.656 10.939"/>
+    <polygon fill="#64CCF1" points="15.656 35.719 0 16.445 8.656 10.939"/>
+    <polygon fill="#D25B95" points="24.794 20.543 31.311 15.332 8.656 10.939"/>
+    <polygon fill="#F38FAB" points="15.656 35.719 31.311 15.332 24.794 20.543"/>
+    <polygon fill="#D86DA1" points="24.47 14.005 24.794 20.543 31.311 15.332"/>
+    <polygon fill="#73BE46" points="21.089 8.285 31.311 15.332 15.515 .282"/>
+    <polygon fill="#96C94B" points="8.656 10.939 21.089 8.285 15.515 .282"/>
+    <polygon fill="#A9D162" points="24.47 14.005 21.089 8.285 8.656 10.939"/>
+    <polygon fill="#FFC332" points="7.838 9.996 8.656 10.939 15.515 .282"/>
+    <polygon fill="#FFDA61" points="7.838 9.996 0 16.445 15.515 .282"/>
+    <polygon fill="#38BDE7" points="0 16.445 7.63 20.138 8.656 10.939"/>
+    <polygon fill="#2EAAE1" points="7.63 20.138 11.394 20.373 8.656 10.939"/>
+    <polygon fill="#269DD8" points="15.656 35.719 11.394 20.373 7.63 20.138"/>
+  </g>
+</svg>
