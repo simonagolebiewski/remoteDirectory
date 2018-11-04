@@ -49,6 +49,7 @@ export default {
   background: #FFFFFF;
   box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
   border-radius: 4px;
+  height: 100%;
   &--filter {
     grid-row: 1 / -1;
     box-shadow: none;
