@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <circle id="adhoc-a" cx="25" cy="25" r="25"/>
+    <polygon id="adhoc-c" points="0 19.114 19.06 19.114 19.06 0 0 0"/>
+    <polygon id="adhoc-e" points="0 19.114 19.06 19.114 19.06 0 0 0"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="adhoc-b" fill="#fff">
+      <use xlink:href="#adhoc-a"/>
+    </mask>
+    <use fill="#1E8967" xlink:href="#adhoc-a"/>
+    <g mask="url(#adhoc-b)">
+      <g transform="translate(15 15)">
+        <mask id="adhoc-d" fill="#fff">
+          <use xlink:href="#adhoc-c"/>
+        </mask>
+        <polygon fill="#FEFEFE" fill-rule="nonzero" points="14.387 4.689 19.065 4.689 19.065 0 14.387 0" mask="url(#adhoc-d)"/>
+        <g>
+          <mask id="adhoc-f" fill="#fff">
+            <use xlink:href="#adhoc-e"/>
+          </mask>
+          <polygon fill="#FEFEFE" fill-rule="nonzero" points="14.387 12.414 11.36 12.414 11.36 7.725 6.683 7.725 6.683 4.689 11.36 4.689 11.36 0 0 0 0 19.114 19.065 19.114 19.065 7.725 14.387 7.725" mask="url(#adhoc-f)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
