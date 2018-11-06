@@ -30,78 +30,83 @@
           <div class="container__block__inline__illustration"><img src="../images/remote-hero.svg"/></div>
         </div>
       </div>
-      <div class="no-results"></div>
     <div class="container__filter-container">
       <div class="grid grid--filter">
-          <form v-on:submit="getfilteredData">
+          <form @submit="getfilteredData">
             <div class="search-container">
               <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
             </div>
           </form>
           <div class="accordion-container">
             <article class="message">
-              <div class="message-header showDesc" id="showDesc1" @click="showDesc" :class="[collapsed ? 'chev-up' : 'chev-down']">Sort By</div>
+              <div class="message-header showDesc" id="showDesc1" @click="showDesc" :class="[Show.showDesc1 ? 'chev-up' : 'chev-down']">Sort By</div>
                 <div class="message-body">
                   <div class="message-content descContainer" :class="{ show: Show.showDesc1 }">
                       <ul>
-                        <li><input type="radio"  id="radio-1" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label for="radio-1" class="radio-label">Alphabetical</label></li>
-                        <li><input type="radio" id="radio-2" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label for="radio-2" class="radio-label">Recently Updated</label></li>
+                        <li><input type="radio"  id="radio-1" v-model="isChecked" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label for="radio-1" class="radio-label">Alphabetical</label></li>
+                        <li><input type="radio" id="radio-2" v-model="isChecked" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label for="radio-2" class="radio-label">Recently Updated</label></li>
                       </ul>
+                      <!-- <div><button @click="isChecked = false; resetSortBy">Clear Results</button></div> -->
                   </div>
                 </div>
             </article>
             <article class="message">
-              <div class="message-header showDesc" id="showDesc2" @click="showDesc" :class="[collapsed ? 'chev-up' : 'chev-down']">Region</div>
+              <div class="message-header showDesc" id="showDesc2" @click="showDesc" :class="[Show.showDesc2 ? 'chev-up' : 'chev-down']">Region</div>
                 <div class="message-body">
                   <div class="message-content descContainer" :class="{ show: Show.showDesc2 }">
                     <ul>
-                      <li><input type="radio" id="radio-3" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label for="radio-3" class="radio-label">Any</label></li>
-                      <li><input type="radio" id="radio-4" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label for="radio-4" class="radio-label">USA</label></li>
-                      <li><input type="radio" id="radio-5" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label for="radio-5" class="radio-label">Europe</label></li>
+                      <li><input type="radio" id="radio-3" v-model="isChecked1" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label for="radio-3" class="radio-label">Any</label></li>
+                      <li><input type="radio" id="radio-4" v-model="isChecked1" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label for="radio-4" class="radio-label">USA</label></li>
+                      <li><input type="radio" id="radio-5" v-model="isChecked1" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label for="radio-5" class="radio-label">Europe</label></li>
                     </ul>
+                    <!-- <div><button @click="isChecked1 = false; resetRegion">Clear Results</button></div> -->
                   </div>
                 </div>
             </article>
             <article class="message">
-              <div class="message-header showDesc" id="showDesc3" @click="showDesc" :class="[collapsed ? 'chev-up' : 'chev-down']">Size</div>
+              <div class="message-header showDesc" id="showDesc3" @click="showDesc" :class="[Show.showDesc3 ? 'chev-up' : 'chev-down']">Size</div>
                 <div class="message-body">
                   <div class="message-content descContainer" :class="{ show: Show.showDesc3 }">
                     <ul>
-                      <li><input type="radio" id="radio-6" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label for="radio-6" class="radio-label">Any</label></li>
-                      <li><input type="radio" id="radio-7" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label for="radio-7" class="radio-label">1-10</label></li>
-                      <li><input type="radio" id="radio-8" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label for="radio-8" class="radio-label">11-50</label></li>
-                      <li><input type="radio" id="radio-9" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label for="radio-9" class="radio-label">51-100</label></li>
-                      <li><input type="radio" id="radio-10" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label for="radio-10" class="radio-label">101-500</label></li>
-                      <li><input type="radio" id="radio-11" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label for="radio-11" class="radio-label">500+</label></li>
+                      <li><input type="radio" id="radio-6" v-model="isChecked2" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label for="radio-6" class="radio-label">Any</label></li>
+                      <li><input type="radio" id="radio-7" v-model="isChecked2" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label for="radio-7" class="radio-label">1-10</label></li>
+                      <li><input type="radio" id="radio-8" v-model="isChecked2" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label for="radio-8" class="radio-label">11-50</label></li>
+                      <li><input type="radio" id="radio-9" v-model="isChecked2" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label for="radio-9" class="radio-label">51-100</label></li>
+                      <li><input type="radio" id="radio-10" v-model="isChecked2" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label for="radio-10" class="radio-label">101-500</label></li>
+                      <li><input type="radio" id="radio-11" v-model="isChecked2" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label for="radio-11" class="radio-label">500+</label></li>
                     </ul>
+                    <!-- <div><button @click="isChecked2 = false; resetSize">Clear Results</button></div> -->
                   </div>
                 </div>
             </article>
             <article class="message">
-              <div class="message-header showDesc" id="showDesc4" @click="showDesc" :class="[collapsed ? 'chev-up' : 'chev-down']">Business Model</div>
+              <div class="message-header showDesc" id="showDesc4" @click="showDesc" :class="[Show.showDesc4 ? 'chev-up' : 'chev-down']">Business Model</div>
                 <div class="message-body">
                   <div class="message-content descContainer" :class="{ show: Show.showDesc4 }">
                     <ul>
-                      <li><input type="radio" id="radio-12" name="business" @change="checkFilter" value="Agency" class="styled-checkbox3"></input><label for="radio-12" class="radio-label">Agency</label></li>
-                      <li><input type="radio" id="radio-13" name="business" @change="checkFilter" value="SaaS" class="styled-checkbox3"></input><label for="radio-13" class="radio-label">SaaS</label></li>
+                      <li><input type="radio" id="radio-12" v-model="isChecked3" name="business" @change="checkFilter" value="Agency" class="styled-checkbox3"></input><label for="radio-12" class="radio-label">Agency</label></li>
+                      <li><input type="radio" id="radio-13" v-model="isChecked3" name="business" @change="checkFilter" value="SaaS" class="styled-checkbox3"></input><label for="radio-13" class="radio-label">SaaS</label></li>
                     </ul>
+                    <!-- <div><button @click="isChecked3 = false; resetBusinessType">Clear Results</button></div> -->
                   </div>
                 </div>
             </article>
             <article class="message">
-              <div class="message-header showDesc" id="showDesc5" @click="showDesc" :class="[collapsed ? 'chev-up' : 'chev-down']">Remote Type</div>
+              <div class="message-header showDesc" id="showDesc5" @click="showDesc" :class="[Show.showDesc5 ? 'chev-up' : 'chev-down']">Remote Type</div>
                 <div class="message-body">
                   <div class="message-content descContainer" :class="{ show: Show.showDesc5 }">
                     <ul>
-                      <li><input type="radio" id="radio-14" name="remote" @change="checkFilter" value="Fully Remote" class="styled-checkbox4"></input><label for="radio-14" class="radio-label">Fully Remote</label></li>
-                      <li><input type="radio" id="radio-15" name="remote" @change="checkFilter" value="Remote First" class="styled-checkbox4"></input><label for="radio-15" class="radio-label">Remote First</label></li>
-                      <li><input type="radio" id="radio-16" name="remote" @change="checkFilter" value="Remote Friendly" class="styled-checkbox4"></input><label for="radio-16" class="radio-label">Remote Friendly</label></li>
-                      <li><input type="radio" id="radio-17" name="remote" @change="checkFilter" value="Partially Remote" class="styled-checkbox4"></input><label for="radio-17" class="radio-label">Partially Remote</label></li>
+                      <li><input type="radio" id="radio-14" v-model="isChecked4" name="remote" @change="checkFilter" value="Fully Remote" class="styled-checkbox4"></input><label for="radio-14" class="radio-label">Fully Remote</label></li>
+                      <li><input type="radio" id="radio-15" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote First" class="styled-checkbox4"></input><label for="radio-15" class="radio-label">Remote First</label></li>
+                      <li><input type="radio" id="radio-16" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote Friendly" class="styled-checkbox4"></input><label for="radio-16" class="radio-label">Remote Friendly</label></li>
+                      <li><input type="radio" id="radio-17" v-model="isChecked4" name="remote" @change="checkFilter" value="Partially Remote" class="styled-checkbox4"></input><label for="radio-17" class="radio-label">Partially Remote</label></li>
                     </ul>
+                    <!-- <div><button @click="resetRemote">Clear Results</button></div> -->
                   </div>
                 </div>
             </article>
-            <div><button @click="clearResults">Clear Results</button></div>
+            <div><button @click="resetData">Clear Results</button></div>
+            <!-- <div><button @click="clearResults">Clear Results</button></div> -->
           </div>
         </div>
         <div class="grid-item-container">
@@ -124,8 +129,14 @@ export default {
     return {
       filteredData: data,
       search: '',
-      collapsed: false,
+      selected: this.selected,
+      visible: false,
       initialData: [],
+      isChecked: true,
+      isChecked1: true,
+      isChecked2: true,
+      isChecked3: true,
+      isChecked4: true,
       Show: {
       	showDesc1: false,
         showDesc2: false,
@@ -138,15 +149,14 @@ export default {
      methods: {
          showDesc: function(e) {
       		this.Show[e.target.id] = !this.Show[e.target.id];
-
-           if(this.collapsed){
-             this.collapsed = false;
-           }else{
-             this.collapsed = true;
-           }
-        },
-        clearResults: function()  {
-          this.initialData = data;
+       },
+        resetData: function() {
+          this.isChecked = false;
+          this.isChecked1 = false;
+          this.isChecked2 = false;
+          this.isChecked3 = false;
+          this.isChecked4 = false;
+          this.filteredData = data;
         },
         getfilteredData: function() {
           this.initialData = data;

@@ -62,10 +62,15 @@ export default {
   border-radius: 100%;
   background: #FFFFFF;
   box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
+  overflow: hidden;
     img {
       position: relative;
-      top: 10px;
-      height: 30px;
+      // top: 10px;
+      // height: 30px;
+      height: 100%;
+      max-width: 100%;
+      display: block;
+      margin: auto;
     }
 }
 .external-link {
@@ -77,6 +82,7 @@ export default {
   top: 16px;
   right: 16px;
   margin-top: 15px;
+  display: none;
 }
 .description {
   display: block;
@@ -96,9 +102,14 @@ export default {
     //CSS-GRID
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  .name, .company-icon, .external-link {
+  .name, .company-icon{
     display: inline-block;
     vertical-align: middle;
+  }
+  &:hover {
+    .external-link {
+      display: block;
+    }
   }
   .name {
     font-size: 18px;
