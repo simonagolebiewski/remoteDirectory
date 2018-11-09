@@ -1,25 +1,29 @@
 <template>
     <div class="grid">
-      <div class="top-half">
-        <div class="company-icon">
-          <img :src="item.logo" alt="Logo"/>
+      <div class="item">
+        <div class="content">
+          <div class="top-half">
+            <div class="company-icon">
+              <img :src="item.logo" alt="Logo"/>
+            </div>
+            <a href="#" class="name">{{ item.name}}</a>
+            <a href="#" class="external-link"></a>
+            <span class="description">{{item.description}}</span>
+          </div>
+          <div class="bottom-half">
+            <div class="bottom-half__block">
+              <div class="employees">{{item.employeeNum}} Employees</div>
+              <div class="bottom-half__block--separator"></div>
+              <div class="country">{{item.country}}</div>
+            </div>
+            <div class="bottom-half__block">
+              <div class="remote">{{item.remote}}</div>
+              <div class="bottom-half__block--separator"></div>
+              <div class="type">{{item.type}}</div>
+            </div>
+            <!-- <div class="date">{{item.dateUpdated}}</div> -->
+          </div>
         </div>
-        <a href="#" class="name">{{ item.name}}</a>
-        <a href="#" class="external-link"></a>
-        <span class="description">{{item.description}}</span>
-      </div>
-      <div class="bottom-half">
-        <div class="bottom-half__block">
-          <div class="employees">{{item.employeeNum}} Employees</div>
-          <div class="bottom-half__block--separator"></div>
-          <div class="country">{{item.country}}</div>
-        </div>
-        <div class="bottom-half__block">
-          <div class="remote">{{item.remote}}</div>
-          <div class="bottom-half__block--separator"></div>
-          <div class="type">{{item.type}}</div>
-        </div>
-        <!-- <div class="date">{{item.dateUpdated}}</div> -->
       </div>
     </div>
 </template>
@@ -36,11 +40,6 @@ export default {
 </script>
 <style scoped lang="scss">
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
   width: 1000px;
   margin: auto;
   font-family: 'Roboto', sans-serif;
@@ -65,8 +64,6 @@ export default {
   overflow: hidden;
     img {
       position: relative;
-      // top: 10px;
-      // height: 30px;
       height: 100%;
       max-width: 100%;
       display: block;
@@ -83,6 +80,9 @@ export default {
   right: 16px;
   margin-top: 15px;
   display: none;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
 }
 .description {
   display: block;

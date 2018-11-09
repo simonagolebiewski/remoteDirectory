@@ -506,7 +506,7 @@ type: "Agency",
 {
 name: 'Chef',
 logo: require('../images/logos/chef-logo.svg'),
-description: 'Finely crafted websites & tools for content creators',
+description: 'Finely crafted websites & tools for content creators. Finely crafted websites & tools for content creators. Finely crafted websites & tools for content creators.',
 region: 'Europe',
 country: 'Switzerland',
 // employees: 1233,
