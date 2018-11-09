@@ -36,11 +36,6 @@ export default {
 </script>
 <style scoped lang="scss">
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
   width: 1000px;
   margin: auto;
   font-family: 'Roboto', sans-serif;
@@ -65,8 +60,6 @@ export default {
   overflow: hidden;
     img {
       position: relative;
-      // top: 10px;
-      // height: 30px;
       height: 100%;
       max-width: 100%;
       display: block;
@@ -83,6 +76,9 @@ export default {
   right: 16px;
   margin-top: 15px;
   display: none;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
 }
 .description {
   display: block;

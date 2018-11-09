@@ -30,89 +30,87 @@
           <div class="container__block__inline__illustration"><img src="../images/remote-hero.svg"/></div>
         </div>
       </div>
-    <div class="container__filter-container">
-      <div class="grid grid--filter">
-          <form @submit="getfilteredData">
-            <div class="search-container">
-              <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
-            </div>
-          </form>
-          <div class="accordion-container">
-            <article class="message">
-              <div class="message-header showDesc" id="showDesc1" @click="showDesc" :class="[Show.showDesc1 ? 'chev-up' : 'chev-down']">Sort By</div>
-                <div class="message-body">
-                  <div class="message-content descContainer" :class="{ show: Show.showDesc1 }">
-                      <ul>
-                        <li><input type="radio"  id="radio-1" v-model="isChecked" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label for="radio-1" class="radio-label">Alphabetical</label></li>
-                        <li><input type="radio" id="radio-2" v-model="isChecked" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label for="radio-2" class="radio-label">Recently Updated</label></li>
-                      </ul>
-                      <!-- <div><button @click="isChecked = false; resetSortBy">Clear Results</button></div> -->
-                  </div>
+      <div class="grid-container">
+        <div class="grid grid--filter" id="grid-filter">
+          <div class="sticky-container--outer">
+              <form @submit="getfilteredData">
+                <div class="search-container">
+                  <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
                 </div>
-            </article>
-            <article class="message">
-              <div class="message-header showDesc" id="showDesc2" @click="showDesc" :class="[Show.showDesc2 ? 'chev-up' : 'chev-down']">Region</div>
-                <div class="message-body">
-                  <div class="message-content descContainer" :class="{ show: Show.showDesc2 }">
-                    <ul>
-                      <li><input type="radio" id="radio-3" v-model="isChecked1" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label for="radio-3" class="radio-label">Any</label></li>
-                      <li><input type="radio" id="radio-4" v-model="isChecked1" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label for="radio-4" class="radio-label">USA</label></li>
-                      <li><input type="radio" id="radio-5" v-model="isChecked1" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label for="radio-5" class="radio-label">Europe</label></li>
-                    </ul>
-                    <!-- <div><button @click="isChecked1 = false; resetRegion">Clear Results</button></div> -->
-                  </div>
+                <div class="accordion-container">
+                  <article class="message">
+                    <div class="message-header showDesc" id="showDesc1" @click="showDesc" :class="[Show.showDesc1 ? 'chev-up' : 'chev-down']">Sort By</div>
+                      <div class="message-body">
+                        <div class="message-content descContainer" :class="{ show: Show.showDesc1 }">
+                            <ul>
+                              <li><input type="radio"  id="radio-1" v-model="isChecked" name="sort" @change="checkSort" value="Alphabetical" class="styled-checkbox"></input><label for="radio-1" class="radio-label">Alphabetical</label></li>
+                              <li><input type="radio" id="radio-2" v-model="isChecked" name="sort" @change="checkSort" value="Recently Updated" class="styled-checkbox"></input><label for="radio-2" class="radio-label">Recently Updated</label></li>
+                            </ul>
+                        </div>
+                      </div>
+                  </article>
+                  <article class="message">
+                    <div class="message-header showDesc" id="showDesc2" @click="showDesc" :class="[Show.showDesc2 ? 'chev-up' : 'chev-down']">Region</div>
+                      <div class="message-body">
+                        <div class="message-content descContainer" :class="{ show: Show.showDesc2 }">
+                          <ul>
+                            <li><input type="radio" id="radio-3" v-model="isChecked1" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label for="radio-3" class="radio-label">Any</label></li>
+                            <li><input type="radio" id="radio-4" v-model="isChecked1" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label for="radio-4" class="radio-label">USA</label></li>
+                            <li><input type="radio" id="radio-5" v-model="isChecked1" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label for="radio-5" class="radio-label">Europe</label></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </article>
+                  <article class="message">
+                    <div class="message-header showDesc" id="showDesc3" @click="showDesc" :class="[Show.showDesc3 ? 'chev-up' : 'chev-down']">Size</div>
+                      <div class="message-body">
+                        <div class="message-content descContainer" :class="{ show: Show.showDesc3 }">
+                          <ul>
+                            <li><input type="radio" id="radio-6" v-model="isChecked2" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label for="radio-6" class="radio-label">Any</label></li>
+                            <li><input type="radio" id="radio-7" v-model="isChecked2" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label for="radio-7" class="radio-label">1-10</label></li>
+                            <li><input type="radio" id="radio-8" v-model="isChecked2" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label for="radio-8" class="radio-label">11-50</label></li>
+                            <li><input type="radio" id="radio-9" v-model="isChecked2" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label for="radio-9" class="radio-label">51-100</label></li>
+                            <li><input type="radio" id="radio-10" v-model="isChecked2" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label for="radio-10" class="radio-label">101-500</label></li>
+                            <li><input type="radio" id="radio-11" v-model="isChecked2" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label for="radio-11" class="radio-label">500+</label></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </article>
+                  <article class="message">
+                    <div class="message-header showDesc" id="showDesc4" @click="showDesc" :class="[Show.showDesc4 ? 'chev-up' : 'chev-down']">Business Model</div>
+                      <div class="message-body">
+                        <div class="message-content descContainer" :class="{ show: Show.showDesc4 }">
+                          <ul>
+                            <li><input type="radio" id="radio-12" v-model="isChecked3" name="business" @change="checkFilter" value="Agency" class="styled-checkbox3"></input><label for="radio-12" class="radio-label">Agency</label></li>
+                            <li><input type="radio" id="radio-13" v-model="isChecked3" name="business" @change="checkFilter" value="SaaS" class="styled-checkbox3"></input><label for="radio-13" class="radio-label">SaaS</label></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </article>
+                  <article class="message">
+                    <div class="message-header showDesc" id="showDesc5" @click="showDesc" :class="[Show.showDesc5 ? 'chev-up' : 'chev-down']">Remote Type</div>
+                      <div class="message-body">
+                        <div class="message-content descContainer" :class="{ show: Show.showDesc5 }">
+                          <ul>
+                            <li><input type="radio" id="radio-14" v-model="isChecked4" name="remote" @change="checkFilter" value="Fully Remote" class="styled-checkbox4"></input><label for="radio-14" class="radio-label">Fully Remote</label></li>
+                            <li><input type="radio" id="radio-15" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote First" class="styled-checkbox4"></input><label for="radio-15" class="radio-label">Remote First</label></li>
+                            <li><input type="radio" id="radio-16" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote Friendly" class="styled-checkbox4"></input><label for="radio-16" class="radio-label">Remote Friendly</label></li>
+                            <li><input type="radio" id="radio-17" v-model="isChecked4" name="remote" @change="checkFilter" value="Partially Remote" class="styled-checkbox4"></input><label for="radio-17" class="radio-label">Partially Remote</label></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </article>
+                  <div><button @click="resetData">Clear Results</button></div>
                 </div>
-            </article>
-            <article class="message">
-              <div class="message-header showDesc" id="showDesc3" @click="showDesc" :class="[Show.showDesc3 ? 'chev-up' : 'chev-down']">Size</div>
-                <div class="message-body">
-                  <div class="message-content descContainer" :class="{ show: Show.showDesc3 }">
-                    <ul>
-                      <li><input type="radio" id="radio-6" v-model="isChecked2" name="employees" @change="checkFilter" value="Any" class="styled-checkbox2"></input><label for="radio-6" class="radio-label">Any</label></li>
-                      <li><input type="radio" id="radio-7" v-model="isChecked2" name="employees" @change="checkFilter" value="1-10" class="styled-checkbox2"></input><label for="radio-7" class="radio-label">1-10</label></li>
-                      <li><input type="radio" id="radio-8" v-model="isChecked2" name="employees" @change="checkFilter" value="11-50" class="styled-checkbox2"></input><label for="radio-8" class="radio-label">11-50</label></li>
-                      <li><input type="radio" id="radio-9" v-model="isChecked2" name="employees" @change="checkFilter" value="51-100" class="styled-checkbox2"></input><label for="radio-9" class="radio-label">51-100</label></li>
-                      <li><input type="radio" id="radio-10" v-model="isChecked2" name="employees" @change="checkFilter" value="101-500" class="styled-checkbox2"></input><label for="radio-10" class="radio-label">101-500</label></li>
-                      <li><input type="radio" id="radio-11" v-model="isChecked2" name="employees" @change="checkFilter" value="500+" class="styled-checkbox2"></input><label for="radio-11" class="radio-label">500+</label></li>
-                    </ul>
-                    <!-- <div><button @click="isChecked2 = false; resetSize">Clear Results</button></div> -->
-                  </div>
-                </div>
-            </article>
-            <article class="message">
-              <div class="message-header showDesc" id="showDesc4" @click="showDesc" :class="[Show.showDesc4 ? 'chev-up' : 'chev-down']">Business Model</div>
-                <div class="message-body">
-                  <div class="message-content descContainer" :class="{ show: Show.showDesc4 }">
-                    <ul>
-                      <li><input type="radio" id="radio-12" v-model="isChecked3" name="business" @change="checkFilter" value="Agency" class="styled-checkbox3"></input><label for="radio-12" class="radio-label">Agency</label></li>
-                      <li><input type="radio" id="radio-13" v-model="isChecked3" name="business" @change="checkFilter" value="SaaS" class="styled-checkbox3"></input><label for="radio-13" class="radio-label">SaaS</label></li>
-                    </ul>
-                    <!-- <div><button @click="isChecked3 = false; resetBusinessType">Clear Results</button></div> -->
-                  </div>
-                </div>
-            </article>
-            <article class="message">
-              <div class="message-header showDesc" id="showDesc5" @click="showDesc" :class="[Show.showDesc5 ? 'chev-up' : 'chev-down']">Remote Type</div>
-                <div class="message-body">
-                  <div class="message-content descContainer" :class="{ show: Show.showDesc5 }">
-                    <ul>
-                      <li><input type="radio" id="radio-14" v-model="isChecked4" name="remote" @change="checkFilter" value="Fully Remote" class="styled-checkbox4"></input><label for="radio-14" class="radio-label">Fully Remote</label></li>
-                      <li><input type="radio" id="radio-15" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote First" class="styled-checkbox4"></input><label for="radio-15" class="radio-label">Remote First</label></li>
-                      <li><input type="radio" id="radio-16" v-model="isChecked4" name="remote" @change="checkFilter" value="Remote Friendly" class="styled-checkbox4"></input><label for="radio-16" class="radio-label">Remote Friendly</label></li>
-                      <li><input type="radio" id="radio-17" v-model="isChecked4" name="remote" @change="checkFilter" value="Partially Remote" class="styled-checkbox4"></input><label for="radio-17" class="radio-label">Partially Remote</label></li>
-                    </ul>
-                    <!-- <div><button @click="resetRemote">Clear Results</button></div> -->
-                  </div>
-                </div>
-            </article>
-            <div><button @click="resetData">Clear Results</button></div>
-            <!-- <div><button @click="clearResults">Clear Results</button></div> -->
+              </form>
           </div>
         </div>
-        <div class="grid-item-container">
-            <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
+        <div class="container__filter-container">
+            <div class="grid-item-container">
+                <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
+            </div>
         </div>
-    </div>
+      </div>
   </div>
 </template>
 
@@ -326,6 +324,8 @@ export default {
          this.getfilteredData();
        }
     };
+
+
 </script>
 
 <style scoped lang="scss">
@@ -376,10 +376,20 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+// .sticky-container {
+//   &--outer {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: flex-start;
+//   }
+//   &--inner {
+//     position: -webkit-sticky;
+//     position: sticky;
+//     top: 0;
+//   }
+// }
 .container {
-  width: 90%;
-  margin: auto;
+  margin: 0 5%;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 15px;
   &__block {
@@ -387,9 +397,13 @@ table {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 85px;
     @media only screen and (max-width: 850px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     &__inline {
+      @media only screen and (max-width: 768px) {
+        grid-column-start: 1;
+        grid-column-end: span col1-start;
+      }
       &__company-description {
         &--intro {
           text-align: left;
@@ -398,6 +412,12 @@ table {
           color: #24292E;
           margin-bottom: 20px;
           width: 80%;
+          @media only screen and (min-width: 556px) and (max-width: 850px) {
+            font-size: 30px;
+          }
+          @media only screen and (max-width: 555px) {
+            font-size: 26px !important;
+          }
           .remote-owls {
             color: #F84F78;
             display: inline-block;
@@ -414,13 +434,30 @@ table {
           }
         }
       }
+      &__illustration {
+        img {
+          @media only screen and (max-width: 850px) {
+            width: 100%;
+          }
+          @media only screen and (max-width: 768px) {
+            width: 50%;
+          }
+        }
+      }
     }
   }
   &__filter-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: inline-block;
+    position: relative;
+    left: 270px;
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
+    width: 100%;
+    @media only screen and (max-width: 700px) {
+      width: 100%;
+      left: 0;
+    }
   }
 }
 .grid-item-container {
@@ -428,13 +465,23 @@ table {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
-    grid-column-start: 2;
-    grid-column-end: span col4-start;
+    grid-column-start: 1;
+    grid-column-end: span col3-start;
+    width: calc(100% - 270px);
+
     @media only screen and (max-width: 1075px) {
       grid-template-columns: repeat(2, 1fr);
     }
     @media only screen and (max-width: 850px) {
       grid-template-columns: repeat(1, 1fr);
+    }
+    @media only screen and (max-width: 700px) {
+      width: 100%;
+    }
+    @media only screen and (max-width: 555px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-start: 1;
+      grid-column-end: span col1-start;
     }
 }
 .grid {
@@ -446,13 +493,23 @@ table {
     -webkit-box-shadow: none;
     box-shadow: none;
     background: #F4F6F8;
-    // grid-template-columns: 1fr;
-    min-width: 270px;
+    position: absolute;
+    display: inline-block;
+    left: 5%;
+    @media only screen and (max-width: 700px) {
+      display: block;
+      position: relative;
+      left: 0;
+    }
+    @media only screen and (max-width: 555px) {
+      grid-column-start: 1;
+      grid-column-end: span col1-start;
+    }
   }
 }
 .search-container {
   &--search-input {
-    width: 85%;
+    width: 80%;
     border-radius: 3px;
     background: #FFFFFF;
     border: 1px solid #E3E3E3;
@@ -460,20 +517,31 @@ table {
     font-size: 14px;
     font-family: 'Roboto-Bold', sans-serif;
     background: url(../images/search-icon.svg) no-repeat #FFFFFF scroll 7px 7px;
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+    }
     &::placeholder {
       color: rgba(0, 0, 9, 0.5);
     }
   }
 }
 .chev-up {
-  background: url(../images/chevron-up.svg);
-  background-repeat: no-repeat;
-  background-position: 96%;
+  &:after {
+    content: url(../images/chevron-up.svg);
+    right: 15px;
+    position: absolute;
+    // background-repeat: no-repeat;
+    // background-position: 96%;
+  }
 }
 .chev-down {
-  background: url(../images/chevron-down.svg);
-  background-repeat: no-repeat;
-  background-position: 96%;
+  &:after {
+    content: url(../images/chevron-down.svg);
+    right: 15px;
+    position: absolute;
+    // background-repeat: no-repeat;
+    // background-position: 96%;
+  }
 }
 .descContainer {
   display: none;
@@ -482,15 +550,22 @@ table {
   display: block;
 }
 .accordion-container {
+  margin-top: 32px;
+  width: 230px;
   .message {
     margin-bottom: 10px;
-    margin-top: 32px;
+    // margin-top: 32px;
     &-header {
       cursor: pointer;
       text-align: left;
       font-size: 14px;
       font-family: 'Roboto-Bold', sans-serif;
       color: #181818;
+      line-height: 40px;
+      padding: 0 5px;
+      &:hover {
+        background: rgba(0, 0, 76, 0.1);
+      }
     }
     &-body {
       text-align: left;
@@ -569,5 +644,10 @@ input[type=text]:focus, textarea:focus {
         }
       }
     }
+  }
+
+  .fix-filter {
+    position: fixed;
+    top: 250px;
   }
 </style>

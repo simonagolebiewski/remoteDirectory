@@ -29,6 +29,12 @@ export default {
     display: inline-block;
     float: left;
     margin-left: 5%;
+    @media only screen and (max-width: 700px) {
+      display: block;
+      float: none;
+      margin: 0;
+      text-align: center;
+    }
     &__share {
       margin-right: 8px;
     }
@@ -57,6 +63,12 @@ export default {
     display: inline-block;
     float: right;
     margin-right: 5%;
+    @media only screen and (max-width: 700px) {
+      display: block;
+      float: none;
+      margin: 0;
+      text-align: center;
+    }
     a {
       color: #1CB8C1;
       font-family: 'Roboto-Bold', sans-serif;
