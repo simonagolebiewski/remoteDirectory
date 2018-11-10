@@ -38,6 +38,10 @@
                   <input type="text" class="search-container--search-input form-control" placeholder="Type to search..." v-model="search" v-on:keyup="getfilteredData"></input>
                 </div>
                 <div class="accordion-container">
+                  <div class="accordion-container__results-container">
+                    <div class="accordion-container__results-container__results-remaining">{{remaining}}</div>
+                    <a class="accordion-container__results-container__clear-filters" @click="resetData">Clear Filters</a>
+                  </div>
                   <article class="message">
                     <div class="message-header showDesc" id="showDesc1" @click="showDesc" :class="[Show.showDesc1 ? 'chev-up' : 'chev-down']">Sort By</div>
                       <div class="message-body">
@@ -100,13 +104,14 @@
                         </div>
                       </div>
                   </article>
-                  <div><button @click="resetData">Clear Results</button></div>
+                  <!-- <div><button @click="resetData">Clear Results</button></div> -->
                 </div>
               </form>
           </div>
         </div>
         <div class="container__filter-container">
             <div class="grid-item-container">
+                <div v-if="noRemaining">{{noRemaining}}</div>
                 <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
             </div>
         </div>
@@ -144,6 +149,19 @@ export default {
       },
     }
   },
+    computed: {
+      remaining(){
+        if (this.filteredData.filter(data => data).length === 1){
+            return this.filteredData.filter(data => data).length + " result";
+        }
+        return this.filteredData.filter(data => data).length + " results";
+      },
+      noRemaining(){
+        if (this.filteredData.filter(data => data).length === 0){
+             return "No Results Available";
+           }
+      }
+    },
      methods: {
          showDesc: function(e) {
       		this.Show[e.target.id] = !this.Show[e.target.id];
@@ -489,13 +507,14 @@ table {
   box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
   border-radius: 4px;
   &--filter {
-    padding: 16px 10px 10px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    // padding: 16px 10px 10px;
     background: #F4F6F8;
     position: absolute;
     display: inline-block;
     left: 5%;
+    box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
+    border-radius: 4px;
+
     @media only screen and (max-width: 700px) {
       display: block;
       position: relative;
@@ -508,6 +527,9 @@ table {
   }
 }
 .search-container {
+  border-bottom: 1px solid #DADBDD;
+  padding: 16px;
+  position: relative;
   &--search-input {
     width: 80%;
     border-radius: 3px;
@@ -526,10 +548,14 @@ table {
   }
 }
 .chev-up {
+  background: #E8E9EB;
+  border-radius: 4px;
   &:after {
     content: url(../images/chevron-up.svg);
-    right: 15px;
+    right: 31px;
     position: absolute;
+    right: 14px;
+    bottom: 2px;
     // background-repeat: no-repeat;
     // background-position: 96%;
   }
@@ -537,7 +563,7 @@ table {
 .chev-down {
   &:after {
     content: url(../images/chevron-down.svg);
-    right: 15px;
+    right: 14px;
     position: absolute;
     // background-repeat: no-repeat;
     // background-position: 96%;
@@ -550,11 +576,32 @@ table {
   display: block;
 }
 .accordion-container {
-  margin-top: 32px;
-  width: 230px;
+  width: 210px;
+  padding: 16px;
+  &__results-container {
+    text-align: left;
+    margin-bottom: 16px;
+    &__results-remaining {
+      color: #181818;
+      font-size: 12px;
+      display: inline-block;
+      margin-right: 8px;
+      width: 60px;
+    }
+    &__clear-filters {
+      cursor: pointer;
+      color: #029688;
+      text-decoration: underline;
+      font-size: 12px;
+      display: inline-block;
+    }
+  }
   .message {
     margin-bottom: 10px;
     // margin-top: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
     &-header {
       cursor: pointer;
       text-align: left;
@@ -562,9 +609,12 @@ table {
       font-family: 'Roboto-Bold', sans-serif;
       color: #181818;
       line-height: 40px;
-      padding: 0 5px;
+      padding: 0 8px;
+      position: relative;
       &:hover {
-        background: rgba(0, 0, 76, 0.1);
+        background: #E8E9EB;
+        border-radius: 4px;
+        // padding: 0 8px;
       }
     }
     &-body {
@@ -576,6 +626,7 @@ table {
           font-size: 12px;
           list-style-type: none;
           line-height: 32px;
+          padding-left: 8px;
           &:hover {
             background: #F6F6F8;
             border-radius: 4px;
