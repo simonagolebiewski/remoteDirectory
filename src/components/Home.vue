@@ -116,6 +116,9 @@
             </div>
         </div>
       </div>
+      <div class="container__help">
+        <div>Care to help? <a  class="container__help--link" href="#">Tell us why</a> you're interested in remote work</div>
+      </div>
   </div>
 </template>
 
@@ -285,19 +288,20 @@ export default {
               resultArray = filteredDataByFilters.filter(company => company.region === checkRegion && company.employeeNum === checkEmployeeNum && company.type === checkType && company.remote === checkRemote);
             }
             //Check Region, Employees and Business Type
-            else if (checkRegion !== undefined && checkEmployeeNum !== undefined && checkType){
+            else if (checkRegion !== undefined && checkEmployeeNum !== undefined && checkType !== undefined){
               resultArray = filteredDataByFilters.filter(company => company.region === checkRegion && company.employeeNum === checkEmployeeNum && company.type === checkType);
             }
             //Check Region, Employees and Remote
-            else if (checkRegion !== undefined && checkEmployeeNum !== undefined && checkRemote){
+            else if (checkRegion !== undefined && checkEmployeeNum !== undefined && checkRemote !== undefined){
               resultArray = filteredDataByFilters.filter(company => company.region === checkRegion && company.employeeNum === checkEmployeeNum && company.remote === checkRemote);
             }
             //Check Remote, Employees and Business Type
-            else if (checkRemote !== undefined && checkEmployeeNum !== undefined && checkType){
+            else if (checkRemote !== undefined && checkEmployeeNum !== undefined && checkType !== undefined){
               resultArray = filteredDataByFilters.filter(company => company.remote === checkRemote && company.employeeNum === checkEmployeeNum && company.type === checkType);
             }
-            else if (checkRemote !== undefined && checkRegion !== undefined && checkType){
-              resultArray = filteredDataByFilters.filter(company => company.remote === checkRemote && company.region === checkRemote && company.type === checkType);
+            //Check Remote, Region and Business Type
+            else if (checkRemote !== undefined && checkRegion !== undefined && checkType !== undefined){
+              resultArray = filteredDataByFilters.filter(company => company.remote === checkRemote && company.region === checkRegion && company.type === checkType);
             }
             //Filtering Region and Employee Numbers
             else if (checkRegion !== undefined && checkEmployeeNum !== undefined){
@@ -394,22 +398,27 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-// .sticky-container {
-//   &--outer {
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: flex-start;
-//   }
-//   &--inner {
-//     position: -webkit-sticky;
-//     position: sticky;
-//     top: 0;
-//   }
-// }
 .container {
   margin: 0 5%;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 15px;
+  &__help {
+    background: #029688;
+    height: 63px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    div {
+      line-height: 63px;
+      color: #FFFFFF;
+      font-family: 'Roboto-Bold', sans-serif;
+      font-size: 18px;
+    }
+    &--link {
+      color: #FFFFFF;
+    }
+  }
   &__block {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -486,6 +495,7 @@ table {
     grid-column-start: 1;
     grid-column-end: span col3-start;
     width: calc(100% - 270px);
+    margin-bottom: 60px;
 
     @media only screen and (max-width: 1075px) {
       grid-template-columns: repeat(2, 1fr);
@@ -514,6 +524,7 @@ table {
     left: 5%;
     box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
     border-radius: 4px;
+    margin-bottom: 80px;
 
     @media only screen and (max-width: 700px) {
       display: block;
@@ -531,7 +542,7 @@ table {
   padding: 16px;
   position: relative;
   &--search-input {
-    width: 80%;
+    width: 75%;
     border-radius: 3px;
     background: #FFFFFF;
     border: 1px solid #E3E3E3;
@@ -578,6 +589,9 @@ table {
 .accordion-container {
   width: 210px;
   padding: 16px;
+  @media only screen and (max-width: 700px) {
+    width: auto;
+  }
   &__results-container {
     text-align: left;
     margin-bottom: 16px;
@@ -608,7 +622,7 @@ table {
       font-size: 14px;
       font-family: 'Roboto-Bold', sans-serif;
       color: #181818;
-      line-height: 40px;
+      line-height: 32px;
       padding: 0 8px;
       position: relative;
       &:hover {
@@ -627,10 +641,10 @@ table {
           list-style-type: none;
           line-height: 32px;
           padding-left: 8px;
-          &:hover {
-            background: #F6F6F8;
-            border-radius: 4px;
-          }
+          // &:hover {
+          //   background: #E8E9EB;
+          //   border-radius: 4px;
+          // }
           &:first-child {
             margin-top: 10px;
           }
@@ -652,7 +666,15 @@ input[type=text]:focus, textarea:focus {
   input[type="radio"] {
     position: absolute;
     opacity: 0;
+    &:hover {
+      + .radio-label {
+        &:before {
+          background: #C2C2C2;
+        }
+      }
+    }
     + .radio-label {
+        cursor: pointer;
       &:before {
         content: '';
         border-radius: 100%;
