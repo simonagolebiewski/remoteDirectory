@@ -3011,7 +3011,72 @@ dateUpdated: "Oct 25, 2018 3:00:00 PM",
 remote: "Fully Remote",
 type: "SaaS",
 url: "https://zapier.com/"
-}
+},
+{
+name: 'GrooveHQ',
+logo: require('../images/logos/groove.svg'),
+description: 'Simple help desk software',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "11-50",
+dateUpdated: "Nov 10, 2018 3:00:00 PM",
+remote: "Fully Remote",
+type: "SaaS",
+url: "https://www.groovehq.com/"
+},
+{
+name: 'Screenly',
+logo: require('../images/logos/screenly.png'),
+description: 'The best way to display content on your screens',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "1-10",
+dateUpdated: "Nov 10, 2018 3:00:00 PM",
+remote: "Fully Remote",
+type: "SaaS",
+url: "https://www.screenly.io/"
+},
+{
+name: 'Zipline',
+logo: require('../images/logos/zipline.svg'),
+description: 'Brings your brand to life in stores',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "51-100",
+dateUpdated: "Nov 10, 2018 3:00:00 PM",
+remote: "Fully Remote",
+type: "SaaS",
+url: "https://serpapi.com/"
+},
+{
+name: 'Nozbe',
+logo: require('../images/logos/nozbe.svg'),
+description: 'Busy people and effective teams get tasks and projects done thanks to Nozbe',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "11-50",
+dateUpdated: "Nov 10, 2018 3:00:00 PM",
+remote: "Fully Remote",
+type: "SaaS",
+url: "https://nozbe.com"
+},
+{
+name: 'Winding Tree',
+logo: require('../images/logos/windingtree.svg'),
+description: 'Makes travel cheaper for travelers and more profitable for providers',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "11-50",
+dateUpdated: "Nov 10, 2018 3:00:00 PM",
+remote: "Fully Remote",
+type: "Non-Profit",
+url: "https://windingtree.com"
+},
 ];
 
 export default data;

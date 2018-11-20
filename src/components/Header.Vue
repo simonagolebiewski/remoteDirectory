@@ -8,7 +8,6 @@
     <a href="#"><div class="header-container__share-links__icon"></div></a>
     <a href="#" class="header-container__share-links__contribute">+ Contribute</a>
   </div>
-  <div class="header-container__help-link"><a href="#">Care to help? Tell us why you’re interested in remote work.</a></div>
 </div>
 </template>
 
@@ -23,12 +22,14 @@ export default {
 .header-container {
   &__border-top {
     border-top: 4px solid #F84F78;
-    margin-bottom: 10px;
   }
   &__share-links {
     display: inline-block;
-    float: left;
     margin-left: 5%;
+    display: block;
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
     @media only screen and (max-width: 700px) {
       display: block;
       float: none;

@@ -95,11 +95,15 @@ export default {
 .top-half {
     padding: 16px 16px 0px;
     position: relative;
-
+    color: #181818;
+    text-decoration: none;
     //CSS-GRID
     display: grid;
     // grid-template-columns: repeat(3, 1fr);
     grid-template-columns: 66px auto;
+    &:hover {
+      // text-decoration: underline;
+    }
   .name, .company-icon{
     display: inline-block;
     vertical-align: middle;

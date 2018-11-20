@@ -4,26 +4,15 @@
       <div class="container__block__inline">
         <div class="container__block__inline__company-description">
                 <div class="container__block__inline__company-description--intro">
-                 This year, <div class="remote-owls">remote owls</div>
-                 collaborating more than ever
-                 before, with billion animals
-                 and counting.
+                  All<span class="pink">*</span> the filters you need to find
+                  a remote company that’s right for you.
                  </div>
                  <div class="container__block__inline__company-description--para">
-                 You’re transcending borders
-                 and barriers of all varieties
-                 to create something unquantifiable:
-                 a community of leaders, dreamers,
-                 dissenters, tinkerers, and doers
-                 building the way for.
+                  200+ remote companies and growing. We’re doing our best to curate
+                  a comprehensive list but nothing beats your active participation —
+                  please feel free to <a href="#" target="_blank">contribute</a> or suggest any <a href="#" target="_blank">change</a> to this website.
                  </div>
-                 <div class="container__block__inline__company-description--para">
-                 To celebrate a year of teamwork across
-                 time zones, programming languages,
-                 and billions of lines of code, let’s
-                 take a look back on the communities
-                 and projects you’ve created in 2018.
-               </div>
+                 <small>* Need an additional filter? <a href="#" target="_blank">Let us know</a> and we’ll gladly add it to the site.</small>
           </div>
         </div>
         <div class="container__block__inline">
@@ -422,7 +411,8 @@ table {
   &__block {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 85px;
+    margin: 20px 0;
+    align-items: center;
     @media only screen and (max-width: 850px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -434,20 +424,19 @@ table {
       &__company-description {
         &--intro {
           text-align: left;
-          font-size: 34px;
+          font-size: 42px;
+          line-height: 50px;
           font-family: 'Roboto-Regular', sans-serif;
           color: #24292E;
           margin-bottom: 20px;
-          width: 80%;
           @media only screen and (min-width: 556px) and (max-width: 850px) {
             font-size: 30px;
           }
           @media only screen and (max-width: 555px) {
             font-size: 26px !important;
           }
-          .remote-owls {
-            color: #F84F78;
-            display: inline-block;
+          .pink {
+            color: #FF3976;
           }
         }
         &--para {
@@ -458,6 +447,29 @@ table {
           margin-bottom: 20px;
           &:last-child {
             margin-bottom: 52px;
+          }
+          a {
+            color: #FF3976;
+            font-weight: bold;
+            text-decoration: underline;
+            &:hover {
+              color: darken(#FF3976, 15%);
+            }
+          }
+        }
+        small {
+          font-family: Roboto-Regular;
+          font-size: 12px;
+          color: #868686;
+          text-align: left;
+          display: block;
+          a {
+            text-decoration: underline;
+            font-weight: bold;
+            color: #868686;
+            &:hover {
+              color: darken(#FF3976, 15%);
+            }
           }
         }
       }
@@ -549,7 +561,7 @@ table {
     padding: 10px 10px 10px 36px;
     font-size: 14px;
     font-family: 'Roboto-Bold', sans-serif;
-    background: url(../images/search-icon.svg) no-repeat #FFFFFF scroll 7px 7px;
+    background: url(../images/search-icon.svg) no-repeat #FFFFFF scroll 8px 9px;
     @media only screen and (max-width: 800px) {
       width: 90%;
     }
