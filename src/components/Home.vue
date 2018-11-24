@@ -50,6 +50,8 @@
                             <li><input type="radio" id="radio-3" v-model="isChecked1" name="region" @change="checkFilter" value="Any" class="styled-checkbox1"></input><label for="radio-3" class="radio-label">Any</label></li>
                             <li><input type="radio" id="radio-4" v-model="isChecked1" name="region" @change="checkFilter" value="USA" class="styled-checkbox1"></input><label for="radio-4" class="radio-label">USA</label></li>
                             <li><input type="radio" id="radio-5" v-model="isChecked1" name="region" @change="checkFilter" value="Europe" class="styled-checkbox1"></input><label for="radio-5" class="radio-label">Europe</label></li>
+                            <li><input type="radio" id="radio-18" v-model="isChecked1" name="region" @change="checkFilter" value="South America" class="styled-checkbox1"></input><label for="radio-18" class="radio-label">South America</label></li>
+                            <li><input type="radio" id="radio-19" v-model="isChecked1" name="region" @change="checkFilter" value="Asia" class="styled-checkbox1"></input><label for="radio-19" class="radio-label">Asia</label></li>
                           </ul>
                         </div>
                       </div>
@@ -76,6 +78,7 @@
                           <ul>
                             <li><input type="radio" id="radio-12" v-model="isChecked3" name="business" @change="checkFilter" value="Agency" class="styled-checkbox3"></input><label for="radio-12" class="radio-label">Agency</label></li>
                             <li><input type="radio" id="radio-13" v-model="isChecked3" name="business" @change="checkFilter" value="SaaS" class="styled-checkbox3"></input><label for="radio-13" class="radio-label">SaaS</label></li>
+                            <li><input type="radio" id="radio-20" v-model="isChecked3" name="business" @change="checkFilter" value="Non-Profit" class="styled-checkbox3"></input><label for="radio-20" class="radio-label">Non-Profit</label></li>
                           </ul>
                         </div>
                       </div>
@@ -105,9 +108,10 @@
             </div>
         </div>
       </div>
-      <div class="container__help">
-        <div>Care to help? <a  class="container__help--link" href="#">Tell us why</a> you're interested in remote work</div>
-      </div>
+        <div class="container__help" v-show="open">
+          <div>Care to help? <a class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
+          <div class="container__help--close" @click="closeAlert">Dismiss</div>
+        </div>
   </div>
 </template>
 
@@ -126,6 +130,7 @@ export default {
       search: '',
       selected: this.selected,
       visible: false,
+      closed: false,
       initialData: [],
       isChecked: true,
       isChecked1: true,
@@ -142,6 +147,9 @@ export default {
     }
   },
     computed: {
+      open() {
+      return !this.closed;
+      },
       remaining(){
         if (this.filteredData.filter(data => data).length === 1){
             return this.filteredData.filter(data => data).length + " result";
@@ -157,7 +165,10 @@ export default {
      methods: {
          showDesc: function(e) {
       		this.Show[e.target.id] = !this.Show[e.target.id];
-       },
+         },
+         closeAlert: function() {
+           this.closed = true;
+         },
         resetData: function() {
           this.isChecked = false;
           this.isChecked1 = false;
@@ -407,6 +418,12 @@ table {
     &--link {
       color: #FFFFFF;
     }
+    &--close {
+      position: absolute;
+      top: 0px;
+      right: 20px;
+      cursor: pointer;
+    }
   }
   &__block {
     display: grid;
@@ -480,6 +497,9 @@ table {
           }
           @media only screen and (max-width: 768px) {
             width: 50%;
+          }
+          @media only screen and (max-width: 700px) {
+            display: none;
           }
         }
       }
@@ -563,6 +583,9 @@ table {
     font-family: 'Roboto-Bold', sans-serif;
     background: url(../images/search-icon.svg) no-repeat #FFFFFF scroll 8px 9px;
     @media only screen and (max-width: 800px) {
+      width: 75%;
+    }
+    @media only screen and (max-width: 700px) {
       width: 90%;
     }
     &::placeholder {
@@ -734,5 +757,10 @@ input[type=text]:focus, textarea:focus {
   .fix-filter {
     position: fixed;
     top: 250px;
+  }
+  .v-alert__icon {
+    position: absolute;
+    left: 20px;
+    top: 20px;
   }
 </style>
