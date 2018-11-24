@@ -10,9 +10,9 @@
                  <div class="container__block__inline__company-description--para">
                   200+ remote companies and growing. We’re doing our best to curate
                   a comprehensive list but nothing beats your active participation —
-                  please feel free to <a href="#" target="_blank">contribute</a> or suggest any <a href="#" target="_blank">change</a> to this website.
+                  please feel free to <a v-bind:href="contribute" target="_blank">contribute</a> or suggest any <a v-bind:href="change" target="_blank">change</a> to this website.
                  </div>
-                 <small>* Need an additional filter? <a href="#" target="_blank">Let us know</a> and we’ll gladly add it to the site.</small>
+                 <small>* Need an additional filter? <a <a v-bind:href="letusknow" target="_blank">Let us know</a> and we’ll gladly add it to the site.</small>
           </div>
         </div>
         <div class="container__block__inline">
@@ -108,10 +108,12 @@
             </div>
         </div>
       </div>
+
         <div class="container__help" v-show="open">
-          <div>Care to help? <a class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
+          <div>Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
           <div class="container__help--close" @click="closeAlert">Dismiss</div>
         </div>
+
   </div>
 </template>
 
@@ -126,6 +128,10 @@ export default {
   },
   data () {
     return {
+      contribute: 'https://goo.gl/forms/bvlQZR1YUZqeRIRK2',
+      change: 'https://goo.gl/forms/uLwvq2JQfwCyt22u2',
+      letusknow: 'https://goo.gl/forms/pzMItahAv0vfD2Q32',
+      telluswhy: 'https://goo.gl/forms/Tx541Ok2adg81fnr2',
       filteredData: data,
       search: '',
       selected: this.selected,
