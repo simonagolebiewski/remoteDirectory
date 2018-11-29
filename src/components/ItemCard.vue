@@ -4,8 +4,8 @@
         <div class="company-icon">
           <img :src="item.logo" alt="Logo"/>
         </div>
-        <a href="#" class="name">{{ item.name}}</a>
-        <a href="#" class="external-link"></a>
+        <a class="name">{{ item.name}}</a>
+        <a class="external-link"></a>
         <span class="description">{{item.description}}</span>
       </a>
       <div class="bottom-half">
