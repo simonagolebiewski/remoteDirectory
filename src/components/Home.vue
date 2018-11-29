@@ -110,7 +110,7 @@
       </div>
 
         <div class="container__help" v-show="open">
-          <div>Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
+          <div class="container__help--tell-us">Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
           <div class="container__help--close" @click="closeAlert">Dismiss</div>
         </div>
 
@@ -421,6 +421,21 @@ table {
       font-family: 'Roboto-Bold', sans-serif;
       font-size: 18px;
     }
+    &--tell-us {
+      @media only screen and (max-width: 700px) {
+        font-size: 16px !important;
+        text-align: left;
+        padding-left: 10px;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 14px !important;
+        display: block;
+        position: relative;
+        line-height: 15px !important;
+        text-align: left;
+        padding: 10px 60px 10px 10px;
+      }
+    }
     &--link {
       color: #FFFFFF;
     }
@@ -429,6 +444,19 @@ table {
       top: 0px;
       right: 20px;
       cursor: pointer;
+      text-decoration: underline;
+
+      @media only screen and (max-width: 700px) {
+        font-size: 16px !important;
+        right: 10px;
+        text-decoration: underline;
+      }
+      @media only screen and (max-width: 500px) {
+      line-height: 15px !important;
+      padding-top: 10px;
+      font-size: 14px !important;
+      text-decoration: underline;
+      }
     }
   }
   &__block {
@@ -457,6 +485,10 @@ table {
           }
           @media only screen and (max-width: 555px) {
             font-size: 26px !important;
+          }
+          @media only screen and (max-width: 425px) {
+            font-size: 20px !important;
+            line-height: 25px;
           }
           .pink {
             color: #FF3976;
@@ -568,6 +600,7 @@ table {
       display: block;
       position: relative;
       left: 0;
+      margin-bottom: 20px;
     }
     @media only screen and (max-width: 555px) {
       grid-column-start: 1;
@@ -593,6 +626,12 @@ table {
     }
     @media only screen and (max-width: 700px) {
       width: 90%;
+    }
+    @media only screen and (max-width: 560px) {
+      width: 85%;
+    }
+    @media only screen and (max-width: 425px) {
+      width: 80%;
     }
     &::placeholder {
       color: rgba(0, 0, 9, 0.5);
