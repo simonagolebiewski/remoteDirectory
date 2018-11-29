@@ -110,7 +110,7 @@
       </div>
 
         <div class="container__help" v-show="open">
-          <div class="container__help--tell-us">Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" href="#" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
+          <div class="container__help--tell-us">Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
           <div class="container__help--close" @click="closeAlert">Dismiss</div>
         </div>
 
