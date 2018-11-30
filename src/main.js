@@ -8,7 +8,8 @@ import VueAnalytics from 'vue-analytics';
 Vue.config.productionTip = false;
 
 Vue.use(VueAnalytics, {
-  id: 'UA-130120805-1'
+  id: 'UA-130120805-1',
+  checkDuplicatedScript: true
 })
 
 /* eslint-disable no-new */
