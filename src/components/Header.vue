@@ -3,7 +3,7 @@
   <div class="header-container__border-top"></div>
   <div class="header-container__share-links">
     <div class="header-container__share-links__share">> Share</div>
-    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fhiringremote.ly&text=Looking%20for%20a%20remote%20job%3F%20This%20site%20let's%20you%20efficiently%20find%20remote%20companies%20that%20are%20uniquely%20suited%20to%20you%20and%20your%20needs."><div class="header-container__share-links__icon">Tweet about us</div></a>
+    <a target="_blank" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fhiringremote.ly&text=Looking%20for%20a%20remote%20job%3F%20This%20site%20let's%20you%20efficiently%20find%20remote%20companies%20that%20are%20uniquely%20suited%20to%20you%20and%20your%20needs."><div class="header-container__share-links__icon">Tweet about us</div></a>
   </div>
   </div>
 </div>

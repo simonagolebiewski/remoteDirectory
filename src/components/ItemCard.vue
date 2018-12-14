@@ -118,6 +118,7 @@ export default {
     color: #181818;
     align-self: center;
     font-weight: 700;
+    text-align: left;
   }
 }
 .bottom-half {

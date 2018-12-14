@@ -3,6 +3,10 @@
     <div class="container__block">
       <div class="container__block__inline">
         <div class="container__block__inline__company-description">
+
+          <!-- PUT BELOW LINK WHEREVER YOU WANT -->
+          <!-- <router-link to="/about">About</router-link> -->
+
                 <div class="container__block__inline__company-description--intro">
                   All<span class="pink">*</span> the filters you need to find
                   a remote company that’s right for you.
@@ -103,13 +107,13 @@
         </div>
         <div class="container__filter-container">
             <div class="grid-item-container">
-                <div v-if="noRemaining">{{noRemaining}}</div>
+                <div class="grid-item-container--no-results" v-if="noRemaining"><img class="thumbs-down" src="../images/thumbs-down.svg"></img>{{noRemaining}}</div>
                 <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
             </div>
         </div>
       </div>
 
-        <div class="container__help" v-show="open">
+        <div class="container__help" v-show="!cookieBox">
           <div class="container__help--tell-us">Care to help? <a v-bind:href="telluswhy" target="_blank" class="container__help--link" @click="closeAlert">Tell us why</a> you're interested in remote work.</div>
           <div class="container__help--close" @click="closeAlert">Dismiss</div>
         </div>
@@ -121,6 +125,7 @@
 import ItemCard from './ItemCard';
 import data from '../data/data';
 import $ from 'jquery';
+import VueRouter from 'vue-router';
 export default {
   name: 'Home',
   components: {
@@ -135,6 +140,7 @@ export default {
       filteredData: data,
       search: '',
       selected: this.selected,
+      cookieBox: this.$cookie.get('cookieBox'),
       visible: false,
       closed: false,
       initialData: [],
@@ -164,7 +170,7 @@ export default {
       },
       noRemaining(){
         if (this.filteredData.filter(data => data).length === 0){
-             return "No Results Available";
+             return "No Results Found.";
            }
       }
     },
@@ -174,6 +180,8 @@ export default {
          },
          closeAlert: function() {
            this.closed = true;
+           this.cookieBox = true;
+           this.$cookie.set('cookieBox', this.cookieBox, {expires: 2});
          },
         resetData: function() {
           this.isChecked = false;
@@ -350,8 +358,17 @@ export default {
       },
       mounted() {
          this.getfilteredData();
-       }
+       },
+      //  watch: {
+      //    deleteCookie: function(){
+      //      if (this.$cookie.get('cookieBox') === true){
+      //        $("#js-cookie-box").hide();
+      //        console.log("hello");
+      //      }
+      //    }
+      //  }
     };
+
 
 
 </script>
@@ -580,6 +597,21 @@ table {
       grid-template-columns: repeat(1, 1fr);
       grid-column-start: 1;
       grid-column-end: span col1-start;
+    }
+
+    &--no-results {
+      background: transparent;
+      box-shadow: 0 2px 4px -2px rgba(24,24,24,0.20), 0 0 0 1px rgba(24,24,24,0.10);
+      border-radius: 4px;
+      color: #868686;
+      font-family: Roboto-Bold;
+      padding: 70px 0;
+
+      .thumbs-down {
+        display: block;
+        margin: auto;
+        margin-bottom: 14px;
+      }
     }
 }
 .grid {

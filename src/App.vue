@@ -1,21 +1,25 @@
 <template>
   <div id="app">
     <Header/>
-    <Home/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
-import Home from './components/Home';
-import ItemCard from './components/ItemCard';
+import Header from '@/components/Header';
+import Home from '@/components/Home';
+import ItemCard from '@/components/ItemCard';
+import About from '@/components/About';
+import VueRouter from 'vue-router';
+
 
 export default {
   name: 'App',
   components: {
     Header,
     Home,
-    ItemCard
+    ItemCard,
+    About
   }
 }
 </script>
