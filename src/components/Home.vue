@@ -181,7 +181,7 @@ export default {
          closeAlert: function() {
            this.closed = true;
            this.cookieBox = true;
-           this.$cookie.set('cookieBox', this.cookieBox, {expires: 2});
+           this.$cookie.set('cookieBox', this.cookieBox, {expires: 30});
          },
         resetData: function() {
           this.isChecked = false;
