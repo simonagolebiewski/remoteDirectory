@@ -104,6 +104,19 @@ type: "Agency",
 url: "https://www.adhocteam.us/"
 },
 {
+name: 'MailerLite',
+logo: require('../images/logos/aerolab.svg'),
+description: 'Advanced email marketing made simple',
+region: 'Worldwide',
+country: 'Lithuania',
+// employees: 1233,
+employeeNum: "11-50",
+dateUpdated: "Oct 25, 2018 3:00:00 PM",
+remote: "Remote First",
+type: "SaaS",
+url: "https://www.mailerlite.com/"
+},
+{
 name: 'Aerolab',
 logo: require('../images/logos/aerolab.svg'),
 description: 'Creates websites and apps, provide digital branding',
