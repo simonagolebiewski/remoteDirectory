@@ -105,7 +105,7 @@ url: "https://www.adhocteam.us/"
 },
 {
 name: 'MailerLite',
-logo: require('../images/logos/aerolab.svg'),
+logo: require('../images/logos/mailerlite.svg'),
 description: 'Advanced email marketing made simple',
 region: 'Worldwide',
 country: 'Lithuania',
