@@ -779,6 +779,19 @@ type: "SaaS",
 url: "https://dashboardhub.io"
 },
 {
+name: 'Daily NCLEX Challenge',
+logo: require('../images/logos/dailynclexchallenge.svg'),
+description: 'NCLEX exam preperation tool that helps students pass by challenging them with an NCLEX question of the day.',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "0-10",
+dateUpdated: "Sep 25, 2019 3:00:00 PM",
+remote: "Remote Friendly",
+type: "SaaS",
+url: "https://www.dailynclexchallenge.com"
+},
+{
 name: 'DataDog',
 logo: require('../images/logos/datadog.svg'),
 description: 'Monitoring that tracks your dynamic infrastructure and applications',
