@@ -922,6 +922,19 @@ type: "SaaS",
 url: "https://www.elastic.co/"
 },
 {
+name: 'Flying Saucer Studio',
+logo: require('../images/logos/flyingsaucer-logo.svg'),
+description: 'Branding agency for startups who are changing the world.',
+region: 'Worldwide',
+country: 'Worldwide',
+// employees: 1233,
+employeeNum: "11–50",
+dateUpdated: "Feb 27, 2020 3:00:00 PM",
+remote: "Fully Remote",
+type: "Agency",
+url: "https://flyingsaucer.nyc/"
+},
+{
 name: 'EngineYard',
 logo: require('../images/logos/engine-yard.svg'),
 description: 'Full-stack Ruby on Rails DevOps experts',
